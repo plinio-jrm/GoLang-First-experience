@@ -23,5 +23,12 @@ func main()  {
 	if (err != nil) {
 		log.Fatal(err)
 	}
-	fmt.Println(messages)
+	//fmt.Println(messages)
+	printlnMessages(messages)
+}
+
+func printlnMessages(messages map[string]string) {
+	for _, msg := range messages {
+		fmt.Println(msg)
+	}
 }
