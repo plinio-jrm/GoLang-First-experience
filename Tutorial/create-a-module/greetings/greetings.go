@@ -8,11 +8,12 @@ import (
 )
 
 func Hello(name string) (string, error) {
-	if (name == "") {
-		return "", errors.New("Empty name!") 
+	if name == "" {
+		return "", errors.New("Empty name!")
 	}
 
 	message := fmt.Sprintf(randomFormat(), name)
+	//message := fmt.Sprintf(randomFormat())
 	return message, nil
 }
 
@@ -20,7 +21,7 @@ func Hellos(names []string) (map[string]string, error) {
 	messages := make(map[string]string)
 	for _, name := range names {
 		message, err := Hello(name)
-		if (err != nil) {
+		if err != nil {
 			return nil, err
 		}
 
@@ -30,7 +31,7 @@ func Hellos(names []string) (map[string]string, error) {
 	return messages, nil
 }
 
-func init()  {
+func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
